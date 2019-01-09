@@ -1,0 +1,2 @@
+//Foulwords array contains disallowed words. You can add/remove words to be detected here.
+let foulWrds = ['hate', 'fuck', 'nigger', 'nigga', 'pussy', 'pussies', 'bitch', 'bitches', 'bastard', 'prick', 'cock', 'hoe', 'dick', 'asshole', 'ass', 'cunt', 'piss', 'shit', 'wank', 'wanker', 'bollocks', 'motherfucker'];

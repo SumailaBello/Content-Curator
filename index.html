@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Content Curator</title>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css">
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- Material Design Bootstrap -->
+    <link href="css/mdb.min.css" rel="stylesheet">
+    <!-- Your custom styles (optional) -->
+    <link href="css/style.css" rel="stylesheet">
+    <!--text area highlight plugin, remove if not used-->
+    <link href="css/jquery.highlight-within-textarea.css" rel="stylesheet">
+    <link rel="icon" href="img/Logo.png">
+</head>
+
+<body class="night-fade-gradient">
+
+    <!-- Modal -->
+    <div class="modal fade text-dark text-bold" id="ModalCenter" tabindex="-1" role="dialog" aria-labelledby="ModalCenterTitle" aria-hidden="true">
+
+        <!-- Add .modal-dialog-centered to .modal-dialog to vertically center the modal -->
+        <div class="modal-dialog modal-dialog-centered" role="document">
+
+
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title text-center" id="ModalLongTitle">About</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body text-center">
+                    <div id="myImg"><img src="img/Logo.png" alt=""></div><span>
+                        Content Curator &copy; 2019. Developed by Bello. For enquiries or just to say hi, send me an</span> <a href="mailto:sumaila.bello@rocketmail.com">Email</a>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <!--                <button type="button" class="btn btn-primary">Save changes</button>-->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Start your project here-->
+    <nav class="navbar navbar-dark purple">
+        <span class="navbar-text white-text">
+            <h3>Content Curator</h3>
+        </span>
+
+        <!-- Collapse button -->
+        <button class="navbar-toggler first-button purple" type="button" data-toggle="collapse" data-target="#navbarSupportedContent20" aria-controls="navbarSupportedContent20" aria-expanded="false" aria-label="Toggle navigation">
+            <div class="animated-icon1"><span></span><span></span><span></span></div>
+        </button>
+
+        <!-- Collapsible content -->
+        <div class="collapse navbar-collapse" id="navbarSupportedContent20">
+
+            <!-- Links -->
+            <ul class="navbar-nav mr-auto">
+                <!--
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Home<span class="sr-only">(current)</span></a>
+      </li>
+-->
+                <li class="nav-item">
+                    <button class=" btn btn-block btn-purple mb-3" id="splchk">Enable/Disable Spell Check(English only)</button>
+                </li>
+                <li class="nav-item">
+                    <button class="nav-link btn btn-block btn-purple" type="button" data-toggle="modal" data-target="#ModalCenter">About</button>
+                </li>
+            </ul>
+            <!-- Links -->
+
+        </div>
+        <!-- Collapsible content -->
+    </nav>
+
+    <!-- bootstrap alert shows when no words are detected -->
+    <div class="alert alert-success alert-dismissible fade show text-center hidden" role="alert" id="alert">
+        <strong>No disallowed words found. Your content is clean!</strong>
+        <button type="button" class="close" aria-label="Close" id="clsAlrt">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <!-- alert end-->
+
+    <div class="container text-monospace">
+        <div class="row">
+            <div class="col secondary-color-dark" id="inputCol">
+                <span class="float-left">
+                    <h5>ENTER TEXT HERE</h5>
+                </span>
+                <span class="float-right mr-5">
+                    <p>Word Count: <span id="wrdCount">0</span></p>
+                </span>
+
+                <!--the below div is used to set border color for the textarea-->
+                <div class="form-group bg-white green-border-focus hwt-container" id="inputDiv">
+
+                    <textarea class="form-control userTxt hwt-input" id="userInput" cols="30" rows="18"></textarea>
+
+                </div>
+                <button type="button" class="btn btn-md blue-gradient btn- float-left" id="check">Check</button>
+                <button type="button" class="btn btn-md young-passion-gradient btn-rounded float-right" id="reset">reset </button>
+                <button type="button" class="btn btn-md blue-gradient btn-rounded float-right" id="remHigh">Remove Highlight</button>
+            </div>
+            <div class="col">
+                <div class="deep-purple lighten-5" id="output">
+                    <!--nested grid-->
+                    <div class="row">
+                        <div class="col text-center" id="flagged">
+                            <h5 class="underline">Flagged</h5>
+                            <p class="underline">(Displayed Alphabetically)</p>
+                            <div class="row">
+                                <div class="col" id="dispFlagged">
+                                    <!--displays detected words-->
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col text-center">
+                            <h5 class="underline">Probable Synonyms</h5>
+                            <p class="underline">(Random Alternatives)</p>
+                            <div class="row">
+                                <div class="col" id="syn">
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--  spinner element. Remove this if you removed the loader function-->
+    <div class="loader small fast hidden" id="loader"></div>
+
+    <!-- Footer -->
+    <footer class="page-footer font-small special-color-dark">
+
+        <!-- Copyright -->
+        <div class="footer-copyright text-center py-3">© 2019 Copyright:
+            <a href="#"> Content Curator</a>
+        </div>
+        <!-- Copyright -->
+
+    </footer>
+    <!-- Footer -->
+    <!-- /Start your project here-->
+
+    <!-- SCRIPTS -->
+    <!-- JQuery -->
+    <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="js/jquery.highlight-within-textarea.js"></script>
+    <!-- Bootstrap tooltips -->
+    <script type="text/javascript" src="js/popper.min.js"></script>
+    <!-- Bootstrap core JavaScript -->
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <!-- MDB core JavaScript -->
+    <script type="text/javascript" src="js/mdb.min.js"></script>
+    <script type="text/javascript" src="js/nav-toggle-animation.js"></script>
+    <!--  link to foulWrd.js here-->
+    <!--  <script type="text/javascript" src="js/foulWrd.js"></script>-->
+    <script type="text/javascript" src="js/algorithm.js"></script>
+</body>
+
+</html>

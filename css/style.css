@@ -1,0 +1,157 @@
+/*making all text on the UI white*/
+body{
+    color: white;
+}
+
+/*makes navbar hamburger button white*/
+.navbar-toggler{
+    background: white;
+}
+
+/*setting border radius to all buttons on the UI for consistent appearance*/
+button.btn{
+    border-radius: 15px;
+}
+
+/*the col containing the text area on the left*/
+#inputCol{
+    margin-top: 10px;
+    border-radius: 10px;
+}
+#userInput{
+    border-bottom-color: white;
+    padding-left: 1px;
+}
+/*sets properties for the output right col*/
+div#output{
+    height: 500px;
+    margin-top: 10px;
+    border-radius: 10px;
+    color: black;
+    overflow-x:hidden;
+    overflow-y: auto;
+}
+
+/*sets right border on the parent col displaying flagged text to act as partition*/
+div#flagged{
+    border-right: 2px solid black;
+}
+
+/*sets text color for the displayed flagged texts*/
+div#dispFlagged{
+    color: darkred;
+}
+
+/*this class underlines texts. Used in output h5 tags */
+.underline{
+    text-decoration-line: underline;
+}
+
+/*didn't use this class*/
+.purple-border textarea {
+    border: 1px solid #ba68c8;
+}
+
+
+/*sets green border color for the text area*/
+.green-border-focus .form-control:focus {
+    border: 1.5px solid #8bc34a;
+    box-shadow: 0 0 0 0.2rem rgba(139, 195, 74, .25);
+}
+
+/*centers the mdb loader/spinner*/
+#loader{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 5px;
+    z-index: 1000;
+}
+
+/*hides any element it is applied*/
+.hidden{
+    display: none;
+}
+
+#ModalCenter {
+    font-weight: bolder;
+}
+
+footer{
+    margin-top: 5px;
+}
+
+/*ALL THE BELOW SETS NECESSARY PROPERTIES FOR ANIMATING HAMBURGER ICON*/
+/* Icon 1 */
+
+.animated-icon1 {
+width: 30px;
+height: 20px;
+position: relative;
+margin: 0px;
+-webkit-transform: rotate(0deg);
+-moz-transform: rotate(0deg);
+-o-transform: rotate(0deg);
+transform: rotate(0deg);
+-webkit-transition: .5s ease-in-out;
+-moz-transition: .5s ease-in-out;
+-o-transition: .5s ease-in-out;
+transition: .5s ease-in-out;
+cursor: pointer;
+}
+
+.animated-icon1 span, .animated-icon3 span, .animated-icon4 span {
+display: block;
+position: absolute;
+height: 3px;
+width: 100%;
+border-radius: 9px;
+opacity: 1;
+left: 0;
+-webkit-transform: rotate(0deg);
+-moz-transform: rotate(0deg);
+-o-transform: rotate(0deg);
+transform: rotate(0deg);
+-webkit-transition: .25s ease-in-out;
+-moz-transition: .25s ease-in-out;
+-o-transition: .25s ease-in-out;
+transition: .25s ease-in-out;
+}
+
+.animated-icon1 span {
+background: white;
+}
+
+.animated-icon1 span:nth-child(1) {
+top: 0px;
+}
+
+.animated-icon1 span:nth-child(2) {
+top: 10px;
+}
+
+.animated-icon1 span:nth-child(3) {
+top: 20px;
+}
+
+.animated-icon1.open span:nth-child(1) {
+top: 11px;
+-webkit-transform: rotate(135deg);
+-moz-transform: rotate(135deg);
+-o-transform: rotate(135deg);
+transform: rotate(135deg);
+}
+
+.animated-icon1.open span:nth-child(2) {
+opacity: 0;
+left: -60px;
+}
+
+.animated-icon1.open span:nth-child(3) {
+top: 11px;
+-webkit-transform: rotate(-135deg);
+-moz-transform: rotate(-135deg);
+-o-transform: rotate(-135deg);
+transform: rotate(-135deg);
+}
